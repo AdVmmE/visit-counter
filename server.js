@@ -1,14 +1,16 @@
 const express = require('express');
 const app = express();
-const port = 3000;
+
+// DAROURI: Azure kiy-3ti l-port f environment variable
+const port = process.env.PORT || 8080; 
 
 let count = 0;
 
 app.get('/', (req, res) => {
   count++;
-  res.send("Visits: " + count);
+  res.send("<h1>Visits: " + count + "</h1>");
 });
 
 app.listen(port, () => {
-  console.log("Server running");
+  console.log("Server running on port " + port);
 });
