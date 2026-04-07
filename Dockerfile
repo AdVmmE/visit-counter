@@ -1,20 +1,12 @@
-# Use a slim version of Node for a smaller, faster container
-FROM node:18-slim
+FROM node:18-alpine
 
-# Set the working directory
 WORKDIR /app
 
-# Copy dependency files first (optimizes build caching)
 COPY package*.json ./
+RUN npm install
 
-# Install only production dependencies
-RUN npm install --only=production
-
-# Copy the rest of your application code
 COPY . .
 
-# Match the port in your index.js
-EXPOSE 8080
+EXPOSE 3000
 
-# Start the server
-CMD ["node", "index.js"]
+CMD ["npm", "start"]
