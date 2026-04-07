@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 
-// DAROURI: Azure kiy-3ti l-port f environment variable
 const port = process.env.PORT || 8080; 
 
 let count = 0;
