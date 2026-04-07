@@ -7,7 +7,10 @@ let count = 0;
 
 app.get('/', (req, res) => {
   count++;
-  res.send("<h1>Visits: " + count + "</h1>");
+  res.send(`
+    <h1>Visits: ${count}</h1>
+    <p>Prepared by Adam Isdaouene - GIGD</p>
+  `);
 });
 
 app.listen(port, () => {
